@@ -16,7 +16,7 @@ public class FileDemo
       	String outputFileName = console.next();
 
         inputStream = new Scanner(new FileInputStream(inputFileName));
-           outputStream = new PrintWriter(new FileOutputStream(outputFileName));
+        outputStream = new PrintWriter(new FileOutputStream(outputFileName));
 
         String line = null;
         int count = 0;
