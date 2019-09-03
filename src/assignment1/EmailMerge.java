@@ -10,8 +10,7 @@ public class EmailMerge {
 		// check to make sure that people.txt exists. If it doesn't exist --> prints out that there is an error. Must re-run program when fixed.
 		File fileObject = new File("people.txt");
 		if (!(fileObject.exists())) {
-			System.out.println(
-					"File 'people.txt' is not found. Please make sure the file is in the correct directory path and is called 'people.txt'.");
+			System.out.println("File 'people.txt' is not found. Please make sure the file is in the correct directory path and is called 'people.txt'.");
 			System.out.println("Re-run this program when 'people.txt' is available.");
 		}
 		else {
@@ -27,8 +26,7 @@ public class EmailMerge {
 				int space1 = line.indexOf(" ");
 				int space2 = line.indexOf(" ", space1 + 1);
 				if (space1 == -1 || space2 == -1) {
-					System.out.println("Line " + (index + 1)
-							+ " is not formatted correctly. Program cannot read in information correctly.");
+					System.out.println("Line " + (index + 1) + " is not formatted correctly. Program cannot read in information correctly.");
 				}
 				else {
 					String name = line.substring(0, space1);
@@ -57,11 +55,10 @@ public class EmailMerge {
 					PrintWriter outputStream = new PrintWriter(new FileOutputStream(fileName));
 
 					// Input of the email template file. Placeholders: <<N>> = name, <<A>> = age, <<G>> = gender
-					// check to make sure that template.txt exists. If it doesn't exist --> prints out that there is an error. Must re-run program when fixed.
+					// Check to make sure that template.txt exists. If it doesn't exist --> prints out that there is an error. Must re-run program when fixed.
 					File fileObject2 = new File("template.txt");
 					if (!(fileObject2.exists())) {
-						System.out.println(
-								"File 'template.txt' is not found. Please make sure the file is in the correct directory path and is called 'template.txt'.");
+						System.out.println("File 'template.txt' is not found. Please make sure the file is in the correct directory path and is called 'template.txt'.");
 						System.out.println("Re-run this program when 'template.txt' is available.");
 					}
 					else {
@@ -77,8 +74,6 @@ public class EmailMerge {
 								int nameHolder = emailLine.indexOf("<<N>>");
 								outputStream.print(emailLine.substring(startIndex, nameHolder));
 								outputStream.print(people.get(index).getName());
-								System.out.print(emailLine.substring(startIndex, nameHolder));
-								System.out.print(people.get(index).getName());
 								startIndex = nameHolder + 5; // changes position of startIndex to immediately after placeholder
 							}
 
@@ -87,8 +82,6 @@ public class EmailMerge {
 								int ageHolder = emailLine.indexOf("<<A>>");
 								outputStream.print(emailLine.substring(startIndex, ageHolder));
 								outputStream.print(people.get(index).getAge());
-								System.out.print(emailLine.substring(startIndex, ageHolder));
-								System.out.print(people.get(index).getAge());
 								startIndex = ageHolder + 5; // changes position of startIndex to immediately after
 															// placeholder
 							}
@@ -98,14 +91,11 @@ public class EmailMerge {
 								int genderHolder = emailLine.indexOf("<<G>>");
 								outputStream.print(emailLine.substring(startIndex, genderHolder));
 								outputStream.print(people.get(index).getGender());
-								System.out.print(emailLine.substring(startIndex, genderHolder));
-								System.out.print(people.get(index).getGender());
 								startIndex = genderHolder + 5; // changes position of startIndex to immediately after
 																// placeholder
 							}
 							// prints from startIndex to the end of the line (either the whole line - if no placeholders in that line, or from the last placeholder to the end of the line)
 							outputStream.println(emailLine.substring(startIndex));
-							System.out.println(emailLine.substring(startIndex));
 						}
 						outputStream.close();
 						inputTemp.close();
