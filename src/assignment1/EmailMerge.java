@@ -4,6 +4,11 @@ import java.util.Scanner;
 import java.io.*;
 import java.util.ArrayList;
 
+/** Merges two text files (people & template). outputs a new file per line in people.txt.
+ * @author Tania
+ * @link PeopleInfo.java
+ */
+
 public class EmailMerge {
 
 	public static void main(String[] args) throws IOException {
