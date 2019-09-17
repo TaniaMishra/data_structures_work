@@ -60,4 +60,25 @@ public class ArrayBoundedStack<T> implements StackInterface<T> {
 	{
 		return (topIndex == (elements.length - 1));
 	}
+	
+	public void remove(int n) {
+	// Throws StackUnderflowException if this stack is empty,
+	// otherwise removes the topmost n elements from the stack
+	// calls pop() method n times --> pop() method handles exception or removes topmost element
+	// TIME COMPLEXITY: O(n)
+		for (int i = 0; i < n; i++) {
+			pop();
+		}
+	}
+	
+	public void clear() {
+	// Throws StackUnderflowException if this stack is empty,
+	// otherwise, removes all elements in this stack
+	// calls pop() method elements.length-1 times --> pop() method handles exception or removes topmost element
+	// TIME COMPLEXITY: O(n)
+		for (int i = 0; i < elements.length-1; i++) {
+			pop();
+		}
+	}
+	
 }
