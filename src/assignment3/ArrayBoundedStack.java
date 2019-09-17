@@ -76,7 +76,7 @@ public class ArrayBoundedStack<T> implements StackInterface<T> {
 	// otherwise, removes all elements in this stack
 	// calls pop() method elements.length-1 times --> pop() method handles exception or removes topmost element
 	// TIME COMPLEXITY: O(n)
-		for (int i = 0; i < elements.length-1; i++) {
+		for (int i = 0; i < elements.length; i++) {
 			pop();
 		}
 	}
