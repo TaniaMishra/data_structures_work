@@ -50,7 +50,7 @@ public class SList<T> {
 	public void insertLast(T element) {
 		LLNode<T> temp = list;
 		for (int i = 0; i < numElements; i++) {
-			temp = ;
+			//temp = ;
 		}
 		//LLNode<T> newNode = new LLNode<T>(element);
 		
