@@ -67,7 +67,7 @@ public class PostFixEvaluator {
 				else if (operator.equals("^"))
 					if (operand1 > operand2)
 						result = operand1;
-					else
+					else		//if operand2 > operand1, return operand2 OR if they are the same, return operand2 (which is the same as operand1)
 						result = operand2;
 
 				// Push result of operation onto stack.
