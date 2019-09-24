@@ -49,14 +49,26 @@ public class SList<T> {
 	
 	public void insertLast(T element) {
 		LLNode<T> temp = list;
-		for (int i = 0; i < numElements; i++) {
-			//temp = ;
+		for (int i = 0; i < numElements-1; i++) {
+			temp = temp.getLink();
 		}
-		//LLNode<T> newNode = new LLNode<T>(element);
-		
+		LLNode<T> newNode = new LLNode<T>(element);
+		temp.setLink(newNode);		
+		numElements++;
 	}
 	
-	
-	
+	public boolean equals(SList<T> other) {
+		boolean result = false;
+		LLNode<T> thisElement = list;
+		LLNode<T> otherElement = other.getList();
+		for (int i = 0; i < numElements; i++) {
+			if (thisElement.equals(otherElement)) {
+				result = true;
+			}
+			thisElement = thisElement.getLink();
+			otherElement = otherElement.getLink();
+		}
+		return result;
+	}
 
 }
