@@ -3,7 +3,18 @@ package assignment3;
 import java.util.Scanner;
 
 public class PostFixEvaluator {
-	public static int[] evaluate(String expression) {
+	public int count;
+	public double average;
+	public int largest;
+	public int smallest;
+	
+	public PostFixEvaluator() {
+		count = 0;
+		average = 0.0;
+		largest = 0;
+		smallest = 0;
+	}
+	public int evaluate(String expression) {
 		Scanner tokenizer = new Scanner(expression);
 		StackInterface<Integer> stack = new ArrayBoundedStack<Integer>(50);
 
@@ -11,10 +22,6 @@ public class PostFixEvaluator {
 		String operator;
 		int operand1, operand2;
 		int result = 0;
-		int count = 0;
-		int average = 0;
-		int largest = tokenizer.nextInt();
-		int smallest = tokenizer.nextInt();
 		
 		while (tokenizer.hasNext()) {
 			if (tokenizer.hasNextInt()) {
@@ -25,7 +32,11 @@ public class PostFixEvaluator {
 				stack.push(value);
 				count++;
 				average += value;
-				if (value > largest) {
+				if (count == 1) {
+					largest = value;
+					smallest = value;
+				}
+				else if (value > largest) {
 					largest = value;
 				}
 				else if (value < smallest) {
@@ -87,17 +98,16 @@ public class PostFixEvaluator {
 			throw new PostFixException("Too many operands-operands left over");
 		
 		//Calculate the average of the numbers pushed
-		average = average/count;
-		
-		//Array holding statistics and the result
-		int[] stats = new int[5];
-		stats[0] = result;
-		stats[1] = largest;
-		stats[2] = smallest;
-		stats[3] = count;
-		stats[4] = average;
+		average = average/(int)count;
 		
 		// Return the array.
-		return stats;
+		return result;
+	}
+	
+	public void resetFields() {
+		count = 0;
+		average = 0;
+		largest = 0;
+		smallest = 0;
 	}
 }
