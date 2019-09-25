@@ -46,29 +46,54 @@ public class SList<T> {
 		result = result.substring(0, result.length()-3);
 		return result;		
 	}
-	
+
 	public void insertLast(T element) {
 		LLNode<T> temp = list;
-		for (int i = 0; i < numElements-1; i++) {
-			temp = temp.getLink();
-		}
 		LLNode<T> newNode = new LLNode<T>(element);
-		temp.setLink(newNode);		
-		numElements++;
-	}
-	
-	public boolean equals(SList<T> other) {
-		boolean result = false;
-		LLNode<T> thisElement = list;
-		LLNode<T> otherElement = other.getList();
-		for (int i = 0; i < numElements; i++) {
-			if (thisElement.equals(otherElement)) {
-				result = true;
+		if (temp != null) {
+			while (temp.getLink() != null) {
+				temp = temp.getLink();
 			}
-			thisElement = thisElement.getLink();
-			otherElement = otherElement.getLink();
+			temp.setLink(newNode);
+			numElements++;
 		}
-		return result;
+		else {
+			list = newNode;
+		}
 	}
 
+	public boolean equals(Object other) {
+		boolean result;
+		int count = 0;
+		if (other.toString().equals(this.toString())) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public void removeFirst() {
+		if (list != null) {
+			LLNode<T> newFirst = list.getLink();
+			list.setLink(null);
+			list = newFirst;
+		}
+	}
+	
+	public void remove(T element) {
+		if (list != null) {
+			LLNode<T> temp = list;
+			LLNode<T> removeElement = new LLNode<T>(element);
+			while (temp.getLink() != null) {
+				if (temp.equals(removeElement)) {
+					LLNode<T> placeholder = temp.getLink();
+					temp.setLink(null);
+					temp = placeholder;
+					break;
+				}
+				temp = temp.getLink();
+			}
+		}
+	}
 }

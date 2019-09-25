@@ -23,6 +23,16 @@ public class TestSList {
 		System.out.println(otherList);
 		
 		System.out.println("Equals? " + myList.equals(otherList));
+		
+		myList.removeFirst();
+		myList.removeFirst();
+		System.out.println("\n" + myList);
+		System.out.println(otherList);
+		System.out.println("Equals? " + myList.equals(otherList));
+		
+		myList.remove("LAST");
+		System.out.println("\n" + myList);
+
 	}
 
 }
