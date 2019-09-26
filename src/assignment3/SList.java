@@ -91,9 +91,10 @@ public class SList<T> {
 					LLNode<T> placeholder = temp.getLink();
 					temp.setLink(null);
 					temp = placeholder;
-					
+					previous.setLink(temp);
 					break;
 				}
+				previous = temp;
 				temp = temp.getLink();
 			}
 		}
