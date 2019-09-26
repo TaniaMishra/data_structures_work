@@ -85,11 +85,13 @@ public class SList<T> {
 		if (list != null) {
 			LLNode<T> temp = list;
 			LLNode<T> removeElement = new LLNode<T>(element);
+			LLNode<T> previous = null;
 			while (temp.getLink() != null) {
-				if (temp.equals(removeElement)) {
+				if (temp.getInfo().equals(removeElement.getInfo())) {
 					LLNode<T> placeholder = temp.getLink();
 					temp.setLink(null);
 					temp = placeholder;
+					
 					break;
 				}
 				temp = temp.getLink();
