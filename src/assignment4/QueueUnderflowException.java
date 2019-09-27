@@ -1,14 +1,11 @@
 package assignment4;
 
-public class QueueUnderflowException extends RuntimeException
-{
-  public QueueUnderflowException()
-  {
-    super();
-  }
+public class QueueUnderflowException extends RuntimeException {
+	public QueueUnderflowException() {
+		super();
+	}
 
-  public QueueUnderflowException(String message)
-  {
-    super(message);
-  }
+	public QueueUnderflowException(String message) {
+		super(message);
+	}
 }
