@@ -52,7 +52,7 @@ public class DList<T> {
 		if (trailer == null)
 			trailer = newNode;
 		else {
-			newNode.setLink(header);
+			newNode.setForward(header);
 			header.setBack(newNode);
 			header = newNode;
 		}
@@ -63,13 +63,13 @@ public class DList<T> {
 	// add element to the end of the list
 	public void addToLast(T elem) {
 		DLLNode<T> newNode = new DLLNode<T>(elem);
-		newNode.setLink(null);
+		newNode.setForward(null);
 
 		if (trailer == null) {
 			trailer = newNode;
 			header = newNode;
 		} else {
-			trailer.setLink(newNode);
+			trailer.setForward(newNode);
 			newNode.setBack(trailer);
 			trailer = newNode;
 		}
@@ -87,7 +87,7 @@ public class DList<T> {
 		while (node != null) {
 			result += node.getInfo();
 			result += "<=>";
-			node = (DLLNode<T>) node.getLink();
+			node = (DLLNode<T>) node.getForward();
 		}
 		result = result.substring(0, result.length() - 3);
 		return result;
@@ -97,7 +97,7 @@ public class DList<T> {
 		DLLNode<T> v = header;
 		while (v != null) {
 			System.out.println(v.getInfo());
-			v = v.getLink();
+			v = v.getForward();
 		}
 
 	}
