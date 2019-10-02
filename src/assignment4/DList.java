@@ -1,9 +1,5 @@
 package assignment4;
 
-/**
- * @author Praveen Madiraju
- *
- */
 public class DList<T> {
 
 	private DLLNode<T> header;
@@ -11,33 +7,20 @@ public class DList<T> {
 
 	private int size;
 
-	/**
-	 * 
-	 */
 	public DList() {
 		header = null;
 		trailer = null;
 		size = 0;
-
 	}
 
-	/**
-	 * @return the header
-	 */
 	public DLLNode<T> getHeader() {
 		return header;
 	}
 
-	/**
-	 * @return the trailer
-	 */
 	public DLLNode<T> getTrailer() {
 		return trailer;
 	}
 
-	/**
-	 * @return the size
-	 */
 	public int getSize() {
 		return size;
 	}
