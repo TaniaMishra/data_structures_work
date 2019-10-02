@@ -1,10 +1,11 @@
 package assignment4;
 
+import support.DLLNode;
+
 public class DList<T> {
 
 	private DLLNode<T> header;
 	private DLLNode<T> trailer;
-
 	private int size;
 
 	public DList() {
@@ -82,7 +83,30 @@ public class DList<T> {
 			System.out.println(v.getInfo());
 			v = v.getForward();
 		}
-
 	}
 
+	public void removeLast() {
+		this.pop();
+	}
+	
+	public void push(T element) {
+		this.addToLast(element);
+	}
+	
+	public void pop() {
+		if (header != null && trailer != null) {
+			if (trailer != header) {
+				DLLNode<T> newLast = trailer.getBack();
+				newLast.setForward(null);
+				trailer.setBack(null);
+				trailer = newLast;
+			}
+			else {
+				header = null;
+				trailer = null;
+			}
+			size--;
+		}
+	}
+	
 }
