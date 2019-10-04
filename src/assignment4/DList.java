@@ -68,12 +68,17 @@ public class DList<T> {
 	public String toString() {
 		DLLNode<T> node = header;
 		String result = "";
-		while (node != null) {
-			result += node.getInfo();
-			result += "<=>";
-			node = (DLLNode<T>) node.getForward();
+		if (header == null) {
+			result = "Empty List";
 		}
-		result = result.substring(0, result.length() - 3);
+		else {
+			while (node != null) {
+				result += node.getInfo();
+				result += "<=>";
+				node = (DLLNode<T>) node.getForward();
+			}
+			result = result.substring(0, result.length() - 3);
+		}
 		return result;
 	}
 
@@ -85,15 +90,15 @@ public class DList<T> {
 		}
 	}
 
-	public void removeLast() {
+	public void removeLast() {		//time complexity: O(1)
 		this.pop();
 	}
 	
-	public void push(T element) {
+	public void push(T element) {		//time complexity: O(1)
 		this.addToLast(element);
 	}
 	
-	public void pop() {
+	public void pop() {		//time complexity: O(1)
 		if (header != null && trailer != null) {
 			if (trailer != header) {
 				DLLNode<T> newLast = trailer.getBack();
@@ -104,6 +109,7 @@ public class DList<T> {
 			else {
 				header = null;
 				trailer = null;
+				//System.out.println("List should now be empty.");
 			}
 			size--;
 		}
