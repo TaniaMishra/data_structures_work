@@ -16,8 +16,8 @@ public class DLTest {
 		System.out.println("toString: " + dList);
 		dList.pop();
 		System.out.println("toString: " + dList);
-		//dList.pop();
-		//System.out.println("toString: " + dList);
+		dList.pop();
+		System.out.println("toString: " + dList);
 		
 	}
 
