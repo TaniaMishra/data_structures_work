@@ -123,12 +123,12 @@ public class DeQueDLL<T> implements DequeInterface<T> {
 			info = null;
 		}
 		else {
-			info = front.toString() + "<-->";
-			DLLNode<T> temp = front;
-			for (int i = 1; i < numElements; i++) {
-				temp = temp.getForward();
-				info += temp.toString();
+			info = front.getInfo() + "";
+			DLLNode<T> temp = front.getForward();
+			while (temp != null) {
 				info += "<-->";
+				info += temp.getInfo();
+				temp = temp.getForward();
 			}
 		}
 		return info;
