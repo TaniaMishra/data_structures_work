@@ -1,5 +1,8 @@
 package assignment4;
 
+/**Deque (double ended queue) class that implements the DequeInterface and uses DLLNode
+ * @author 22mishrt
+ */
 public class DeQueDLL<T> implements DequeInterface<T> {
 	
 	protected DLLNode<T> front, rear;      // reference to the front and rear of this deque
@@ -16,7 +19,11 @@ public class DeQueDLL<T> implements DequeInterface<T> {
 		rear = null;
 		maxSize = max;
 	}
-
+	
+	/** Adds the given element onto the front of the deque.
+	 * @throws QueueOverflowException
+	 * @param T element
+	 */
 	public void enqueueFront(T element) throws QueueOverflowException{
 		DLLNode<T> elem = new DLLNode<T>(element);
 		if (isFull()) {
@@ -37,6 +44,10 @@ public class DeQueDLL<T> implements DequeInterface<T> {
 		numElements++;
 	}
 
+	/** Adds the given element onto the rear of the deque.
+	 * @throws QueueOverflowException
+	 * @param T element
+	 */
 	public void enqueueRear(T element) throws QueueOverflowException{
 		DLLNode<T> elem = new DLLNode<T>(element);
 		if (isFull()) {
@@ -56,7 +67,11 @@ public class DeQueDLL<T> implements DequeInterface<T> {
 		}
 		numElements++;
 	}
-
+	
+	/** Removes the first element of the deque.
+	 * @throws QueueUnderflowException
+	 * @returns T element (the element removed from the deque)
+	 */
 	public T dequeueFront() throws QueueUnderflowException {
 		DLLNode<T> element = front;
 		if (isEmpty()) {
@@ -76,6 +91,10 @@ public class DeQueDLL<T> implements DequeInterface<T> {
 		return (T)element;
 	}
 
+	/** Removes the last element of the deque.
+	 * @throws QueueUnderflowException
+	 * @returns T element (the element removed from the deque)
+	 */
 	public T dequeueRear() throws QueueUnderflowException {
 		DLLNode<T> element = rear;
 		if (isEmpty()) {
@@ -95,6 +114,9 @@ public class DeQueDLL<T> implements DequeInterface<T> {
 		return (T)element;
 	}
 
+	/** Checks if deque is full
+	 * @returns boolean (true == full, false == not full)
+	 */
 	public boolean isFull() {
 		if (numElements == maxSize) {
 			return true;
@@ -104,6 +126,9 @@ public class DeQueDLL<T> implements DequeInterface<T> {
 		}
 	}
 
+	/** Checks if deque is empty
+	 * @returns boolean (true == empty, false == not empty)
+	 */
 	public boolean isEmpty() {
 		if (numElements == 0) {
 			return true;
@@ -113,10 +138,16 @@ public class DeQueDLL<T> implements DequeInterface<T> {
 		}
 	}
 
+	/** Returns the size
+	 * @returns numElements
+	 */
 	public int size() {
 		return numElements;
 	}
 	
+	/** Converts deque into a string
+	 * @returns String (holds all the values in the deque with "<-->" between each value)
+	 */
 	public String toString() {
 		String info;
 		if (numElements == 0) {
