@@ -57,4 +57,12 @@ public class AccountHashMap {
 		for (BankAccount account : values)
 			System.out.println(account.getBalance());
 	}
+	
+	public void displayAccountsWithEqualBalances(Map accountMap) {
+		Set<String> keys = accountMap.keySet();
+		Collection<BankAccount> values;
+		for (String k : keys) {
+			//In Class Exercise
+		}
+	}
 }
