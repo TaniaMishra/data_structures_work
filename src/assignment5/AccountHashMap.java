@@ -1,10 +1,6 @@
 package assignment5;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-
+import java.util.*;
 
 /**
  * This program demonstrates HashMap
@@ -60,9 +56,9 @@ public class AccountHashMap {
 	
 	public void displayAccountsWithEqualBalances(Map accountMap) {
 		Set<String> keys = accountMap.keySet();
-		Collection<BankAccount> values;
+		ArrayList<BankAccount> myValues = new ArrayList<BankAccount>();
 		for (String k : keys) {
-			//In Class Exercise
+		//	myValues.add(accountMap.get(k));
 		}
 	}
 }
