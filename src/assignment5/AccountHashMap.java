@@ -21,7 +21,7 @@ public class AccountHashMap {
 	}
 	
 	public static void displayAccountsWithEqualBalances(Map<String, BankAccount> accountMap) {
-		Set<String> keys = accountMap.keySet();
+		//
 		Map<String, Double> valueMap = new HashMap<String, Double>();
 		for (Map.Entry<String, BankAccount> x : accountMap.entrySet()) {
 			valueMap.put(x.getKey(), x.getValue().getBalance());
