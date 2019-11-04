@@ -1,6 +1,7 @@
 package assignment5;
 
 import java.io.*;
+import java.lang.*;
 import java.util.*;
 
 public class TxtFileCollectionsClass {
@@ -28,21 +29,19 @@ public class TxtFileCollectionsClass {
 					String currentWord;
 					if (x.contains(".") || x.contains(",") || x.contains(";") || x.contains("!") || x.contains("?")) {
 						currentWord = x.substring(0, x.length()-1);
+						currentWord = currentWord.toLowerCase();		//saving all lowercase & no end puncutation text to currentWord
 					}
-				//	else if (x.substring(0, 1) > 200) {    //check if has a capital letter at the start
-						
-				//	}
-					
-					
-					
-					
-					boolean duplicate = wordSet.add(x);		//not already in set, will add & return true; already in set, will not add & return false
-					if (duplicate == false) {		//couldn't add word because it is already in set
-						int newFrequency = frequencyMap.get(x) + 1;		//add to frequency
-						frequencyMap.put(x, newFrequency);
+					else {
+						currentWord = x.toLowerCase();					//saving all lowercase & no end puncutation text to currentWord
 					}
-					else {							//word isn't already in the set
-						frequencyMap.put(x, 1);		//add word to hashmap (first time so frequency is one)
+					
+					boolean duplicate = wordSet.add(currentWord);		//not already in set, will add & return true; already in set, will not add & return false
+					if (duplicate == false) {							//couldn't add word because it is already in set
+						int newFrequency = frequencyMap.get(currentWord) + 1;		//increment frequency
+						frequencyMap.replace(currentWord, newFrequency);				//replace the value for the key (currentWord) w/new frequency
+					}
+					else {												//word isn't already in the set
+						frequencyMap.put(currentWord, 1);				//add word to hashmap (first time --> frequency is one)
 					}
 				}
 			}
