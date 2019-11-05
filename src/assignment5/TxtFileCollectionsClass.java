@@ -8,9 +8,9 @@ public class TxtFileCollectionsClass {
 	public static void main(String[] args) throws IOException {
 		//hashmap to hold a word & the number of times it is in the paragraph
 		HashMap<String, Integer> frequencyMap = new HashMap<String, Integer>();
-		
 		//sorted set to hold individual words in the paragraph
 		Set<String> wordSet = new TreeSet<String>();
+		int numWords = 0; 	//number of total words
 		
 		//checking if paragraph.txt exists (otherwise prints error message and the user has to re-run the program when it exists)
 		File fileObject = new File("paragraph.txt");
@@ -24,6 +24,7 @@ public class TxtFileCollectionsClass {
 			while (inputParagraph.hasNextLine()) {
 				String line = inputParagraph.nextLine(); // one line from the paragraph
 				String[] words = line.split(" ");
+				numWords += words.length;
 				for (String x : words) {
 					//making everything lower case & without punctuation for accurate frequency counting
 					String currentWord;
@@ -46,10 +47,16 @@ public class TxtFileCollectionsClass {
 				}
 			}
 		}
-		System.out.println(frequencyMap);
-		
-		
-		
-		
+		//print each word and it's frequency, reverse order (greatest to least)
+		System.out.println("Each word and it's frequency, from most appeared to least appeared.");
+		System.out.println("Format --> Word: frequency");
+		Set<String> keys = frequencyMap.keySet();
+		for (int i = numWords; i >= 1; i--) {
+			for (String word : keys) {
+				if (frequencyMap.get(word) == i) {
+					System.out.println(word + ": " + frequencyMap.get(word) + "x");
+				}
+			}
+		}
 	}
 }
