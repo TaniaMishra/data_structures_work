@@ -11,18 +11,22 @@ public class AccountHashMap {
 		Map<String, BankAccount> accountMap = new HashMap<String, BankAccount>();
 
 		// Put mappings into the HashMap --> key = string, account number. value = BankAccount
-		accountMap.put("101", new BankAccount(1000));
-		accountMap.put("102", new BankAccount(1000));
-		accountMap.put("103", new BankAccount(1000));
+		accountMap.put("101", new BankAccount(28147));
+		accountMap.put("102", new BankAccount(28147));
+		accountMap.put("103", new BankAccount(28147));
+		accountMap.put("104", new BankAccount(28147));
+		accountMap.put("105", new BankAccount(28147));
+		accountMap.put("106", new BankAccount(28147));
+
 		
 		//Call method to display the accounts with equal balances
 		displayAccountsWithEqualBalances(accountMap);
 	}
 	
-	/*Prints out the accounts with equal balances
-	 * @param hashmap of account numbers (string) and BankAccounts
-	 * output: prints data to console
-	 */
+/*Prints out the accounts with equal balances
+ * @param hashmap of account numbers (string) and BankAccounts
+ * output: prints data to console
+ */
 	public static void displayAccountsWithEqualBalances(Map<String, BankAccount> accountMap) {
 		//get a hashmap with the account value (key) and balance (value)
 		Map<String, Double> valueMap = new HashMap<String, Double>();
