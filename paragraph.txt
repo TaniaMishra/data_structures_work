@@ -1,0 +1,4 @@
+Banana! Fruits! Apple! Banana!
+Pear! Clementine! Banana! Apple!
+Fruits! Pear! Apple!
+Banana! Banana! Apple! Fruits!
