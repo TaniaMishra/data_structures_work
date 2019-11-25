@@ -320,16 +320,16 @@ public class BinarySearchTree<T> implements BSTInterface<T> {
 	}
 	
 	public BSTNode<T> getLeftMostChild() {
-		//return the left most child of the tree; time complexity = O(log n)
+		//return the left most child of the tree
 		BSTNode<T> temp = root;
-		while (temp.getLeft() != null) {
+		while(temp.getLeft() != null) {
 			temp = temp.getLeft();
 		}
 		return temp;
 	}
 	
 	public BSTNode<T> getRightMostChild() {
-		//return the right most child of the tree; time complexity = O(log n)
+		//return the right most child of the tree
 		BSTNode<T> temp = root;
 		while(temp.getRight() != null) {
 			temp = temp.getRight();
@@ -338,7 +338,7 @@ public class BinarySearchTree<T> implements BSTInterface<T> {
 	}
 	
 	public void printLeaves() {
-		//print all leaves of the tree; time complexity = O(n)
+		//print all leaves of the tree
 		System.out.println("Leaves:");
 		LinkedQueue values = new LinkedQueue();
 		values.enqueue(root);
@@ -371,6 +371,10 @@ public class BinarySearchTree<T> implements BSTInterface<T> {
 			}
 		}
 		System.out.println();
+	}
+	
+	public BSTNode<T> getRoot() {
+		return root;
 	}
 	
 }
