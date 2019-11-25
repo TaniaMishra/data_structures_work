@@ -1,4 +1,4 @@
-package support;
+package assignment6;
 
 public class BSTNode<T> {
 	private T info; // The node info
