@@ -416,5 +416,27 @@ public class BinarySearchTree<T> implements BSTInterface<T> {
 		return secLargest;
 	}
 	
+	public BSTNode<T> getRoot() {
+		return root;
+	}
+	
+	public void printPaths(BSTNode node, ArrayList<BSTNode> path) {
+		if (node == null) {
+			return;
+		}
+		else {
+			path.add(node);
+			
+			if (node.getRight() == null && node.getLeft() == null) {
+				for (BSTNode<T> x : path) {
+					System.out.print(x.getInfo() + ", ");
+				}
+				System.out.println();
+			}
+			printPaths(node.getLeft(), path);
+			printPaths(node.getRight(), path);			
+			path.remove(path.size()-1);
+		}
+	}
 	
 }
