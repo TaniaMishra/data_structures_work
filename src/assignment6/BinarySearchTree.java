@@ -373,5 +373,48 @@ public class BinarySearchTree<T> implements BSTInterface<T> {
 		System.out.println();
 	}
 	
+	public BSTNode getSecondLargest() {
+		//set up largest & second largest object variables
+		BSTNode<T> largest;
+		BSTNode<T> secLargest;
+		//if root has a right node, largest is right child & secLargest is root
+		if(root.getRight() != null) {
+			largest = root.getRight();
+			secLargest = root;
+		}
+		//if root doesn't have a right node, it must have a leeft node (according to assignment instructions)
+		//largest is root & secLargest is left child
+		else {
+			largest = root;
+			secLargest = root.getLeft();
+		}
+		//BSF Algorithm
+		LinkedQueue values = new LinkedQueue();
+		values.enqueue(root);
+		while(!values.isEmpty()) {
+			BSTNode<T> tempNode = (BSTNode)values.dequeue();
+			//use comparator to set largest & secLargest vars accordingly
+			if (comp.compare(tempNode.getInfo(), largest.getInfo()) < 0) {		//if tempNode<largest
+				if (comp.compare(tempNode.getInfo(), secLargest.getInfo()) > 0) { 	//if tempNode>secLargest
+					secLargest = tempNode;
+				}
+			}
+			else if (comp.compare(tempNode.getInfo(), largest.getInfo()) > 0) {			//if tempNode>largest
+				secLargest = largest;
+				largest = tempNode;
+			}
+			
+			//cont. w/BSF algorithm
+			if(tempNode.getLeft() != null) {
+				values.enqueue(tempNode.getLeft());
+			}
+			if(tempNode.getRight() != null) {
+				values.enqueue(tempNode.getRight());
+			}
+		}
+		//return the second largest BSTNode
+		return secLargest;
+	}
+	
 	
 }

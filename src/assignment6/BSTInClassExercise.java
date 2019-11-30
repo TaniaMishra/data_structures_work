@@ -14,6 +14,7 @@ public class BSTInClassExercise {
 		System.out.print("All nodes in tree (BF): ");
 		myTree.printAllValuesBF();
 
+		System.out.println("Second Largest Value: " + myTree.getSecondLargest().getInfo());
 		System.out.println("Left Most: " + myTree.getLeftMostChild().getInfo());
 		System.out.println("Right Most: " + myTree.getRightMostChild().getInfo());
 
