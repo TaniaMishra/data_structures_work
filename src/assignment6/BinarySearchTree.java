@@ -421,21 +421,30 @@ public class BinarySearchTree<T> implements BSTInterface<T> {
 	}
 	
 	public void printPaths(BSTNode node, ArrayList<BSTNode> path) {
+		//base case
 		if (node == null) {
 			return;
 		}
 		else {
+			//add node to the arraylist (that holds the path info)
 			path.add(node);
 			
+			//if the node is a leaf, then the path is over; so print the array list (path)
 			if (node.getRight() == null && node.getLeft() == null) {
-				for (BSTNode<T> x : path) {
-					System.out.print(x.getInfo() + ", ");
+				for (int i = 0; i < path.size(); i++) {
+					//if first element in array list, print without comma in front
+					if (i == 0) {
+						System.out.print(path.get(i).getInfo());
+					}
+					else {						//else, print with comma in front
+						System.out.print(", " + path.get(i).getInfo());
+					}
 				}
-				System.out.println();
+				System.out.println();			//new line for next path
 			}
-			printPaths(node.getLeft(), path);
-			printPaths(node.getRight(), path);			
-			path.remove(path.size()-1);
+			printPaths(node.getLeft(), path);		//Recursive call
+			printPaths(node.getRight(), path);		//Recursive call
+			path.remove(path.size()-1);				//remove element from path array list whenever returning to parent node
 		}
 	}
 	
