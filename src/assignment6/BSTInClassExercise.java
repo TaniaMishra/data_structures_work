@@ -3,7 +3,7 @@ package assignment6;
 public class BSTInClassExercise {
 
 	public static void main(String[] args) {
-		BinarySearchTree myTree = new BinarySearchTree();
+		BinarySearchTree<String> myTree = new BinarySearchTree<String>();
 		myTree.add("3");
 		myTree.add("9");
 		myTree.add("2");
