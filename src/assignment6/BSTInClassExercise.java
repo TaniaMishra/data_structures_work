@@ -1,0 +1,24 @@
+package assignment6;
+
+public class BSTInClassExercise {
+
+	public static void main(String[] args) {
+		BinarySearchTree<String> myTree = new BinarySearchTree<String>();
+		myTree.add("3");
+		myTree.add("9");
+		myTree.add("2");
+		myTree.add("1");
+		myTree.add(".5");
+		myTree.add("-5");
+
+		System.out.print("All nodes in tree (BF): ");
+		myTree.printAllValuesBF();
+
+		System.out.println("Second Largest Value: " + myTree.getSecondLargest().getInfo());
+		System.out.println("Left Most: " + myTree.getLeftMostChild().getInfo());
+		System.out.println("Right Most: " + myTree.getRightMostChild().getInfo());
+
+		myTree.printLeaves();
+	}
+
+}
